@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const {User} = require("../db");
 const router = express.Router();
@@ -5,7 +6,7 @@ const zod = require("zod");
 const JWT_secret = require("../config");
 const jwt = require("jsonwebtoken");
 const { authMiddleware } = require("../middleware.js");
-const api_key = "u2c4745K6rwM2RJkrC6s4GsgVGpVPkhp";
+const api_key = process.env.APIKEY;
 
 router.use(express.json());
 
@@ -13,7 +14,7 @@ router.post("/query", async (req, res)=>{
 
     const query = "Get all chapters of book Psalms and answer the following query. Query: " + req.body.query;
 
-    const externalUserId = "ewifjie9u2eqi0";
+    const externalUserId = process.env.EXID;
 
     try {
         // 1. Create Chat Session
