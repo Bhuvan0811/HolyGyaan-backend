@@ -11,7 +11,7 @@ router.use(express.json());
 
 router.post("/query", async (req, res)=>{
 
-    const query = "convert " + req.body.query + " from English to " + req.body.lang;
+    const query = "convert " + req.body.query + " from src_lang English to tgt_lang " + req.body.lang;
 
     const externalUserId = process.env.EXID;
 
